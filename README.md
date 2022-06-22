@@ -1,7 +1,7 @@
 Env Manager
 ======
 
-Kelola file `.env` dalam tampilan untuk Nue Package.
+Kelola file `.env` dalam bentuk tampilan untuk Nue.
 
 ![ss-env](https://raw.githubusercontent.com/novay/imagehost/master/github/nue-extensions-env.png)
 
