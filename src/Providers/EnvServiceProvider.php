@@ -3,7 +3,6 @@
 namespace Nue\Env\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Novay\Nue\Nue;
 use Nue\Env\Env;
 
 class EnvServiceProvider extends ServiceProvider
@@ -13,10 +12,6 @@ class EnvServiceProvider extends ServiceProvider
      */
     public function boot(Env $extension)
     {
-        if (! Env::boot()) {
-            return ;
-        }
-
         if ($views = $extension->views()) {
             $this->loadViewsFrom($views, 'nue-env');
         }
@@ -25,6 +20,6 @@ class EnvServiceProvider extends ServiceProvider
             Env::routes(__DIR__.'/../../routes/web.php');
         });
 
-        Nue::extend('env', __CLASS__);
+        Env::boot();
     }
 }
