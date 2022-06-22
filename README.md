@@ -27,7 +27,7 @@ Tambahin `extensions` berikut kedalam file konfigurasi yang terletak di `config/
 ```php
 'extensions' => [
 	...
-    'env-manager' => [
+    'env' => [
         'enable' => true
     ], 
     ...
