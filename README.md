@@ -42,4 +42,4 @@ Langsung aja kelola file `.env` kamu melalui halaman ini.
 
 ## Lisensi
 
-**Env Manager** ini dikembangin dengan [lisensi MIT](LICENSE.md). Artinya kamu bebas menggunakannya baik untuk pribadi maupun komersil. Enjoy!
+**Env Manager** ini dikembangin dengan [Lisensi MIT](LICENSE.md). Artinya kamu bebas menggunakannya baik untuk kepentingan pribadi maupun komersil. Enjoy!
