@@ -36,10 +36,10 @@ Tambahin `extensions` berikut kedalam file konfigurasi yang terletak di `config/
 
 ## Penggunaan
 
-Kunjungi halaman http://localhost/nue/env melalui peramban.
+Kunjungi halaman http://localhost/nue/env melalui peramban manapun.
 
-Langsung kelola aja file `.env` kamu melalui halaman itu.
+Langsung aja kelola file `.env` kamu melalui halaman ini.
 
 ## Lisensi
 
-Lisensi **Env Manager** ini dikembangin dengan [lisensi MIT](LICENSE.md). Artinya kamu bebas menggunakannya baik untuk pribadi maupun komersil. Enjoy!
+**Env Manager** ini dikembangin dengan [lisensi MIT](LICENSE.md). Artinya kamu bebas menggunakannya baik untuk pribadi maupun komersil. Enjoy!
