@@ -3,8 +3,6 @@
 namespace Nue\Env\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Request;
 
 class Env extends Model
 {
