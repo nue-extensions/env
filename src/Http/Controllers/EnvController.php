@@ -56,7 +56,10 @@ class EnvController extends Controller
             return $this->datatable($data);
         }
 
-        return view("$this->view.index", compact('data'));
+        return nue_view("{$this->view}.index", [
+            'title' => $this->title, 
+            'data' => $data
+        ]);
     }
 
     /**
@@ -66,7 +69,9 @@ class EnvController extends Controller
      */
     public function create() 
     {
-        return view("$this->view.create");
+        return nue_view("{$this->view}.create", [
+            'title' => $this->title
+        ]);
     }
 
     /**
@@ -89,7 +94,7 @@ class EnvController extends Controller
 
         $simpan->save();
         
-        notify()->flash($this->tCreate, 'success');
+        nue_notify($this->tCreate, 'success');
         return redirect(route("$this->prefix.index"));
     }
 
@@ -101,9 +106,10 @@ class EnvController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $edit = $this->data->findOrFail($id);
-    
-        return view("$this->view.edit", compact('edit'));
+        return nue_view("{$this->view}.edit", [
+            'title' => $this->title, 
+            'edit' => $this->data->findOrFail($id)
+        ]);
     }
 
     /**
@@ -126,7 +132,7 @@ class EnvController extends Controller
         $edit->value = $request->value;
         $edit->save();
 
-        notify()->flash($this->tUpdate, 'success');
+        nue_notify($this->tUpdate, 'success');
         return redirect(route("$this->prefix.index"));
     }
 
@@ -141,11 +147,15 @@ class EnvController extends Controller
     {
         if($request->has('pilihan')):
             foreach($request->pilihan as $temp):
-                $this->data->deleteEnv($temp);
+                switch($id):
+                    case 'bulk-delete':
+                        $this->data->deleteEnv($temp);
+                    break;
+                    default:
+                    break;
+                endswitch;
             endforeach;
-            
-            notify()->flash($this->tDelete, 'success');
-            return redirect()->back();
+            return 'success';
         endif;
     }
 
@@ -170,10 +180,10 @@ class EnvController extends Controller
                 return '<code>'.$data['key'].'</code>';
             })
             ->editColumn('action', function($data) {
-                return '<a class="text-info" href="'.route("$this->prefix.edit", $data['id']).'">
-                    <span class="iconify h4 text-info mb-1" data-icon="heroicons-solid:pencil-alt"></span>
-                    Edit
-                </a>';
+                return '<a href="'.route("$this->prefix.edit", $data['id']).'" class="btn btn-xs btn-info rounded-xs" data-pjax>
+                        <i class="bi bi-pencil-square"></i>
+                        '.__('Edit').'
+                    </a>';
             })
             ->escapeColumns(['*'])->toJson();
     }
