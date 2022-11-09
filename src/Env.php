@@ -18,7 +18,7 @@ class Env extends Extension
 
     public static function import()
     {
-        parent::createMenu('Env Manager', 'nue/env', 'file-icons:dotenv');
+        parent::createMenu('Env Manager', 'nue/env', 'code');
 
         parent::createPermission('Env Manager', 'ext.env', 'env*');
     }
